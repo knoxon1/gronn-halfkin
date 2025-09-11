@@ -67,6 +67,13 @@
 	var/mob/living/leash_freepet = null
 	var/var/last_yank = null
 
+/obj/item/leash/examine(mob/user)
+	. = ..()
+	if(leash_pet)
+		. += span_notice("It's connected to [leash_pet.name ? leash_pet : "something"]'s neck.")
+	else 
+		. += "It's not connected to anything."	
+
 /obj/item/leash/leather
 	name = "leather leash"
 	desc = "A strip of treated leather with a metal clasp on the end for easy clipping onto bindings."
@@ -91,11 +98,11 @@
 	if(!leash_pet.get_item_by_slot(SLOT_NECK)) //The pet has slipped their collar and is not the pet anymore.
 		for(var/mob/viewing in viewers(leash_pet, null))
 			if(viewing == leash_master)
-				to_chat(leash_master, "<span class='notice'>[leash_pet] has escaped their collar!!</span>", 1)
+				to_chat(leash_master, "<span class='notice'>[leash_pet] has escaped [leash_pet.p_their()] collar!!</span>", 1)
 			else if(viewing == leash_pet)
 				to_chat(leash_pet, "<span class='notice'>You have slipped free of your collar!</span>")
 			else
-				viewing.show_message("<span class='notice'>[leash_pet] has slipped out of their collar!</span>")
+				viewing.show_message("<span class='notice'>[leash_pet] has slipped out of [leash_pet.p_their()]  collar!</span>")
 		leash_pet.remove_status_effect(/datum/status_effect/leash_pet)
 		w_class = WEIGHT_CLASS_SMALL
 
@@ -120,7 +127,7 @@
 		return
 
 	if(C.cmode && C.mobility_flags & MOBILITY_STAND)
-		to_chat(user, span_warning("I can't leash them, they're too tense!"))
+		to_chat(user, span_warning("I can't leash [C], [C.p_they()] [C.p_are()] too tense!"))
 		return
 
 	if(src.leash_pet != null)
@@ -138,7 +145,7 @@
 				viewing.show_message("<span class='warning'>[leash_attempt_message]</span>", 1)
 
 		var/leashtime = 50
-		if(C.handcuffed)
+		if(C.handcuffed || C.compliance)
 			leashtime = 5
 		if(do_mob(user, C, leashtime)) //do_mob adds a progress bar, but then we also check to see if they have a collar
 			log_combat(user, C, "leashed", addition="playfully")
@@ -217,7 +224,7 @@
 		return
 	if(get_dist(leash_pet, leash_master) > 3)
 		leash_pet.visible_message(
-			span_warning("[leash_pet] is pulled to the ground by their leash!"),
+			span_warning("[leash_pet] is pulled to the ground by [leash_pet.p_their()]  leash!"),
 			span_warning("You are pulled to the ground by your leash!")
 		)
 		leash_pet.apply_effect(20, EFFECT_KNOCKDOWN, 0)
@@ -360,6 +367,46 @@
 	leash_pet.remove_status_effect(/datum/status_effect/leash_freepet)
 	leash_freepet = null
 //	leash_pet.add_movespeed_modifier(/datum/movespeed_modifier/leash)
+
+// These procs were made for travel tiles and are called in traveltile.dm. But they might have uses elsewhere.
+
+/proc/leashed_by_other(mob/living/L)
+	if(L.has_status_effect(/datum/status_effect/leash_pet))
+		for(var/obj/item/leash/held_leash in L.contents)
+			if(held_leash.leash_pet == L)
+				return FALSE
+		for(var/obj/item/leash/dropped_freepet_leash in view(5, L))
+			if(dropped_freepet_leash.leash_pet == L)
+				return FALSE
+		return TRUE
+	return FALSE
+
+/proc/get_master_leashed_mobs(mob/living/L, do_not_remove = TRUE)
+	var/list/master_leashed_mobs = list()
+	if(L.has_status_effect(/datum/status_effect/leash_owner))
+		for(var/obj/item/leash/leash in L.contents)
+			var/mob/living/nearby_pet
+			for(var/mob/living/target in view(5, L) - L)
+				if((L == leash.leash_master) && (target == leash.leash_pet))  // As of writing, you are not considered a master for leashing yourself, or for holding your own leash.
+					nearby_pet = target
+					break
+			if(!nearby_pet)
+				if(leash.leash_pet && !do_not_remove) // leash will unregister them next process(), to not spontaneously throw pet up a z-level
+					leash.leash_pet.remove_status_effect(/datum/status_effect/leash_pet)
+				continue
+			else
+				master_leashed_mobs += nearby_pet
+	return master_leashed_mobs
+
+/proc/get_freepet_leash(atom/movable/subject)
+	if(!isliving(subject))
+		return
+	var/mob/living/L = subject
+	if(L.has_status_effect(/datum/status_effect/leash_freepet))
+		for(var/obj/item/leash/leash in view(5, L))
+			if(leash.leash_freepet == L)
+				return leash
+	return null
 
 /*/datum/movespeed_modifier/leash
 	id = MOVESPEED_ID_LEASH

@@ -119,39 +119,43 @@ GLOBAL_LIST_EMPTY(loadout_items)
 
 /datum/loadout_item/tabard/astrata
 	name = "Astrata Tabard"
-	path = /obj/item/clothing/cloak/templar/astrata
+	path = /obj/item/clothing/cloak/templar/astratan
 
 /datum/loadout_item/tabard/noc
 	name = "Noc Tabard"
-	path = /obj/item/clothing/cloak/templar/noc
+	path = /obj/item/clothing/cloak/tabard/crusader/noc
 
 /datum/loadout_item/tabard/dendor
 	name = "Dendor Tabard"
-	path = /obj/item/clothing/cloak/templar/dendor
+	path = /obj/item/clothing/cloak/tabard/crusader/dendor
 
 /datum/loadout_item/tabard/malum
 	name = "Malum Tabard"
-	path = /obj/item/clothing/cloak/templar/malum
+	path = /obj/item/clothing/cloak/templar/malumite
 
 /datum/loadout_item/tabard/eora
 	name = "Eora Tabard"
-	path = /obj/item/clothing/cloak/templar/eora
+	path = /obj/item/clothing/cloak/templar/eoran
 
 /datum/loadout_item/tabard/pestra
 	name = "Pestra Tabard"
-	path = /obj/item/clothing/cloak/templar/pestra
+	path = /obj/item/clothing/cloak/templar/pestran
 
 /datum/loadout_item/tabard/ravox
 	name = "Ravox Tabard"
-	path = /obj/item/clothing/cloak/cleric/ravox
+	path = /obj/item/clothing/cloak/templar/ravox
 
 /datum/loadout_item/tabard/abyssor
 	name = "Abyssor Tabard"
-	path = /obj/item/clothing/cloak/templar/abyssor
+	path = /obj/item/clothing/cloak/abyssortabard
 
 /datum/loadout_item/tabard/necra
-	name = "Abyssor Tabard"
-	path = /obj/item/clothing/cloak/templar/necra
+	name = "Necra Tabard"
+	path = /obj/item/clothing/cloak/templar/necran
+
+/datum/loadout_item/tabard/xylix
+	name = "Xylix Tabard"
+	path = /obj/item/clothing/cloak/templar/xylixian
 
 /datum/loadout_item/tabard/psydon
 	name = "Psydon Tabard"
@@ -405,18 +409,6 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	path = /obj/item/clothing/under/roguetown/skirt
 
 //ACCESSORIES
-/datum/loadout_item/stockings
-	name = "Stockings"
-	path = /obj/item/clothing/under/roguetown/tights/stockings
-
-/datum/loadout_item/silkstockings
-	name = "Silk Stockings"
-	path = /obj/item/clothing/under/roguetown/tights/stockings/silk
-
-/datum/loadout_item/fishnet
-	name = "Fishnet Stockings"
-	path = /obj/item/clothing/under/roguetown/tights/stockings/fishnet
-
 /datum/loadout_item/wrappings
 	name = "Handwraps"
 	path = /obj/item/clothing/wrists/roguetown/wrappings
@@ -477,6 +469,14 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Cloth Blindfold"
 	path = /obj/item/clothing/mask/rogue/blindfold
 
+/datum/loadout_item/bases
+	name = "Cloth military skirt"
+	path = /obj/item/storage/belt/rogue/leather/battleskirt
+
+/datum/loadout_item/fauldedbelt
+	name = "Belt with faulds"
+	path = /obj/item/storage/belt/rogue/leather/battleskirt/faulds
+
 /datum/loadout_item/psicross
 	name = "Psydonian Cross"
 	path = /obj/item/clothing/neck/roguetown/psicross
@@ -520,6 +520,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/psicross/eora
 	name = "Amulet of Eora"
 	path = /obj/item/clothing/neck/roguetown/psicross/eora
+
+/datum/loadout_item/psicross/xylix
+	name = "Amulet of Xylix"
+	path = /obj/item/clothing/neck/roguetown/psicross/xylix
 
 /datum/loadout_item/psicross/naledi
 	name = "Naledian Psy-Bracelet"

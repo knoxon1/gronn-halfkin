@@ -260,6 +260,14 @@
 				/obj/item/natural/bone = 1)
 	craftdiff = 2
 
+/datum/crafting_recipe/roguetown/sewing/mentorhat
+	name = "worn bamboo hat (4 fibers, 4 twigs, 1 iron bar)"
+	result = list(/obj/item/clothing/head/roguetown/mentorhat)
+	reqs = list(/obj/item/natural/fibers = 4,
+				/obj/item/grown/log/tree/stick = 4,
+				/obj/item/ingot/iron = 1,)
+	craftdiff = 3
+
 /datum/crafting_recipe/roguetown/sewing/coif
 	name = "coif (1 fibers, 2 cloth)"
 	result = list(/obj/item/clothing/neck/roguetown/coif/clothcoif)
@@ -1022,26 +1030,6 @@ datum/crafting_recipe/roguetown/sewing/Purdress
 	reqs = list(/obj/item/natural/silk = 5)
 	craftdiff = 6
 
-/datum/crafting_recipe/roguetown/sewing/stockings_white
-	name = "stockings (1 fibers, 1 cloth)"
-	result = list(/obj/item/clothing/under/roguetown/tights/stockings/white)
-	reqs = list(/obj/item/natural/cloth = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 3
-
-/datum/crafting_recipe/roguetown/sewing/stockings_white_silk
-	name = "silk stockings (1 fibers, 1 silk)"
-	result = list(/obj/item/clothing/under/roguetown/tights/stockings/silk/white)
-	reqs = list(/obj/item/natural/silk = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 5
-
-/datum/crafting_recipe/roguetown/sewing/stockings_white_fishnet
-	name = "fishnet stockings (2 fibers)"
-	result = list(/obj/item/clothing/under/roguetown/tights/stockings/fishnet/white)
-	reqs = list(/obj/item/natural/fibers = 2)
-	craftdiff = 3
-
 /datum/crafting_recipe/roguetown/sewing/strapless_dress
 	name = "strapless dress (1 fibers, 2 cloth)"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/dress/gen/strapless)
@@ -1083,6 +1071,24 @@ datum/crafting_recipe/roguetown/sewing/Purdress
 				/obj/item/natural/fibers = 4)
 	craftdiff = 2
 
+/datum/crafting_recipe/roguetown/sewing/battleskirt
+	name = "cloth military skirt (3 cloth, 1 leather)"
+	result = list(/obj/item/storage/belt/rogue/leather/battleskirt)
+	reqs = list(
+		/obj/item/natural/cloth = 3,
+		/obj/item/natural/hide/cured = 1
+	)
+	craftdiff = 2
+
+/datum/crafting_recipe/roguetown/sewing/fauldedbelt
+	name = "belt with faulds (3 cloth, 1 leather)"
+	result = list(/obj/item/storage/belt/rogue/leather/battleskirt/faulds)
+	reqs = list(
+		/obj/item/natural/cloth = 3,
+		/obj/item/natural/hide/cured = 1
+	)
+	craftdiff = 2
+
 /datum/crafting_recipe/roguetown/sewing/surgicalbag
 	name = "surgeon's bag (3 fibers, 1 cloth)"
 	result = list(/obj/item/storage/belt/rogue/surgery_bag/empty)
@@ -1102,6 +1108,13 @@ datum/crafting_recipe/roguetown/sewing/Purdress
 	reqs = list(/obj/item/natural/cloth = 1, /obj/item/natural/fibers = 1)
 	craftdiff = 1
 
+/datum/crafting_recipe/roguetown/sewing/inquisitori
+	name = "inquisitori tabard (1 fibers, 2 cloth)"
+	result = list(/obj/item/clothing/cloak/psydontabard)
+	reqs = list(/obj/item/natural/cloth = 2, /obj/item/natural/fibers = 1)
+	tools = list(/obj/item/needle)
+	craftdiff = 3
+	
 // tennite templar tabards
 
 /datum/crafting_recipe/roguetown/sewing/templar_astrata

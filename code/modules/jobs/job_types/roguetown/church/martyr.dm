@@ -5,12 +5,12 @@
 /datum/component/martyrweapon
 	var/list/allowed_areas = list(/area/rogue/indoors/town/church, /area/rogue/indoors/town/church/chapel, /area/rogue/indoors/town/church/basement)
 	var/list/allowed_patrons = list()
-	var/cooldown = 30 MINUTES
+	var/cooldown = 15 MINUTES
 	var/last_activation = 0
 	var/next_activation = 0
 	var/end_activation = 0
 	var/ignite_chance = 2
-	var/traits_applied = list(TRAIT_NOPAIN, TRAIT_NOPAINSTUN, TRAIT_NOMOOD, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_BLOODLOSS_IMMUNE, TRAIT_LONGSTRIDER, TRAIT_STRONGBITE, TRAIT_STRENGTH_UNCAPPED)
+	var/traits_applied = list(TRAIT_NOPAIN, TRAIT_NOPAINSTUN, TRAIT_NOMOOD, TRAIT_NOHUNGER, TRAIT_NOBREATH, TRAIT_BLOODLOSS_IMMUNE, TRAIT_LONGSTRIDER, TRAIT_STRONGBITE, TRAIT_STRENGTH_UNCAPPED, TRAIT_SHOCKIMMUNE)
 	var/stat_bonus_martyr = 3
 	var/mob/living/current_holder
 	var/is_active = FALSE
@@ -251,9 +251,9 @@
 /datum/component/martyrweapon/proc/adjust_traits(remove = FALSE)
 	for(var/trait in traits_applied)
 		if(!remove)
-			ADD_TRAIT(current_holder, trait, TRAIT_GENERIC)
+			ADD_TRAIT(current_holder, trait, "martyrweapon")
 		else
-			REMOVE_TRAIT(current_holder, trait, TRAIT_GENERIC)
+			REMOVE_TRAIT(current_holder, trait, "martyrweapon")
 
 /datum/component/martyrweapon/proc/adjust_stats(state)
 	if(current_holder)
@@ -397,12 +397,14 @@
 					SEND_SOUND(H, sound(null))
 					H.cmode_music = 'sound/music/combat_martyr.ogg'
 					to_chat(H, span_warning("I can feel my muscles nearly burst from power! I can jump great heights!"))
+					ADD_TRAIT(H, TRAIT_GRABIMMUNE, TRAIT_GENERIC)
 					ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
 					ADD_TRAIT(H, TRAIT_NOFALLDAMAGE2, TRAIT_GENERIC)
 				if(STATE_MARTYRULT)
 					SEND_SOUND(H, sound(null))
 					H.cmode_music = 'sound/music/combat_martyrult.ogg'
 					to_chat(H, span_warning("I can jump great heights!"))
+					ADD_TRAIT(H, TRAIT_GRABIMMUNE, TRAIT_GENERIC)
 					ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
 					ADD_TRAIT(H, TRAIT_NOFALLDAMAGE2, TRAIT_GENERIC)
 			adjust_traits(remove = FALSE)
@@ -425,6 +427,9 @@
 	tutorial = "Martyrs are hand-picked among the most devout of the Holy See. They are given one of the See's cherished relics to protect the Church, and to inspire hope and lead by example of grace, kindness and vicious intolerance to any who do not share the belief of the Ten. They have sworn an Oath in the sight of the gods, and will fulfill it to the bitter end."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_SECOND_CLASS_NO_GOLEM
+	disallowed_races = list(
+		/datum/species/lamia,
+	)
 	allowed_patrons = ALL_DIVINE_PATRONS
 	outfit = /datum/outfit/job/roguetown/martyr
 	min_pq = 10 //Cus it's a Martyr of the Ten. Get it.
@@ -491,8 +496,8 @@
 /obj/item/rogueweapon/sword/long/martyr
 	force = 30
 	force_wielded = 36
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/peel)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/sword/chop)
 	icon_state = "martyrsword"
 	icon = 'icons/roguetown/weapons/64.dmi'
 	item_state = "martyrsword"
@@ -517,7 +522,7 @@
 	thrown_bclass = BCLASS_CUT
 	dropshrink = 1
 	smeltresult = /obj/item/ingot/gold
-	is_silver = FALSE
+	is_silver = TRUE
 	toggle_state = null
 	is_important = TRUE
 

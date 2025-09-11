@@ -111,6 +111,8 @@
 		return FALSE
 	else if(mob.is_shifted)
 		mob.unpixel_shift()
+	
+	mob.last_client_interact = world.time
 
 	var/mob/living/L = mob  //Already checked for isliving earlier
 	if(L.incorporeal_move)	//Move though walls
@@ -248,6 +250,8 @@
 		if (L.incapacitated())
 			return FALSE
 		if (M.grab_state > GRAB_PASSIVE)
+			return FALSE
+		if (L.compliance)
 			return FALSE
 		move_delay = world.time + 10
 		to_chat(src, span_warning("[L] still has footing! I need a stronger grip!"))
@@ -698,6 +702,12 @@
 		switch(intent)
 			if(MOVE_INTENT_SNEAK)
 				m_intent = MOVE_INTENT_SNEAK
+				if(isliving(src))
+					var/mob/living/L = src
+					if(!islamia(L) && !isdoll(L) && (/datum/mob_descriptor/prominent/prominent_bottom in L.mob_descriptors))
+						L.thicc_sneaking = TRUE
+					else
+						L.thicc_sneaking = FALSE
 				update_sneak_invis()
 
 			if(MOVE_INTENT_WALK)

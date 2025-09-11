@@ -5,9 +5,9 @@
 	sight = 0
 	see_in_dark = 8
 	hud_possible = list(ANTAG_HUD)
-	
+
 	typing_indicator_enabled = TRUE
-	
+
 	var/resize = 1 //Badminnery resize
 	var/lastattacker = null
 	var/lastattackerckey = null
@@ -99,6 +99,8 @@
 	var/list/status_effects //a list of all status effects the mob has
 	var/druggy = 0
 
+	var/stasis = FALSE //handles wildshape stopping bleeding from happening
+
 	//Speech
 	var/stuttering = 0
 	var/slurring = 0
@@ -177,6 +179,8 @@
 	var/rogue_sneaking = FALSE
 	/* Can be used to change the lighting threshholds at which players can sneak.*/
 	var/rogue_sneaking_light_threshhold = 0.15
+	/* If the character has prominent posterior mob descriptor, let the asscheeks alert the guards*/
+	var/thicc_sneaking = FALSE
 
 	var/voice_pitch = 1
 
@@ -184,3 +188,5 @@
 
 	var/cmode_music_override = list() // set by prefs or the verb, ignored if empty
 	var/cmode_music_override_name // solely for autoselecting as a spawned-in mob
+
+	var/last_heard_raw_message //to prevent repeated messages from spamming

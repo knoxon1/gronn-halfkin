@@ -93,6 +93,10 @@
 	allow_quick_empty = TRUE
 	insert_preposition = "in"
 
+/datum/component/storage/concrete/roguetown/sack/New(datum/P, ...)
+	. = ..()
+	cant_hold = typecacheof(list(/obj/item/restraints/legcuffs/beartrap))
+
 /datum/component/storage/concrete/roguetown/sack/bag
 	dump_time = 10
 	not_while_equipped = TRUE
@@ -139,18 +143,18 @@
 /datum/component/storage/concrete/grid/magebag/New(datum/P, ...)
 	. = ..()
 	set_holdable(list(
-		/obj/item/magic/infernalash,
-		/obj/item/magic/hellhoundfang,
-		/obj/item/magic/infernalash,
-		/obj/item/magic/abyssalflame,
-		/obj/item/magic/fairydust,
-		/obj/item/magic/iridescentscale,
-		/obj/item/magic/heartwoodcore,
-		/obj/item/magic/sylvanessence,
-		/obj/item/magic/elementalmote,
-		/obj/item/magic/elementalshard,
-		/obj/item/magic/elementalfragment,
-		/obj/item/magic/elementalrelic,
+		/obj/item/magic/infernal/ash,
+		/obj/item/magic/infernal/fang,
+		/obj/item/magic/infernal/core,
+		/obj/item/magic/infernal/flame,
+		/obj/item/magic/fae/dust,
+		/obj/item/magic/fae/scale,
+		/obj/item/magic/fae/core,
+		/obj/item/magic/fae/essence,
+		/obj/item/magic/elemental/mote,
+		/obj/item/magic/elemental/shard,
+		/obj/item/magic/elemental/fragment,
+		/obj/item/magic/elemental/relic,
 		/obj/item/magic/obsidian,
 		/obj/item/magic/leyline,
 		/obj/item/reagent_containers/food/snacks/grown/manabloom,

@@ -2,7 +2,7 @@
 	name = "bleeding stump"
 	check_name = span_danger("<B>STUMP</B>")
 	severity = WOUND_SEVERITY_CRITICAL
-	whp = 75
+	whp = 120
 	sewn_whp = 25
 	bleed_rate = 25
 	sewn_bleed_rate = 0.25
@@ -46,3 +46,8 @@
 	name = "left leg stump"
 	check_name = span_danger("<B>LEFT LEG STUMP</B>")
 	mob_overlay = "dis_ll"
+
+/datum/wound/dismemberment/lamian_tail
+	name = "tail stump"
+	check_name = span_danger("<B>TAIL STUMP</B>")
+	mob_overlay = "dis_taur"
