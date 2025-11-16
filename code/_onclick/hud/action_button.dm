@@ -11,6 +11,7 @@
 	var/id
 	var/ordered = TRUE //If the button gets placed into the default bar
 	nomouseover = FALSE
+	var/rebinding = FALSE
 
 /atom/movable/screen/movable/action_button/proc/can_use(mob/user)
 	if (linked_action)
