@@ -104,7 +104,8 @@
 #define KNIGHT		(1<<4)
 #define GUARD_CAPTAIN		(1<<5)
 #define MARSHAL		(1<<6)
-#define SUITOR		(1<<7)
+#define HOSTAGE		(1<<7)
+#define SUITOR		(1<<8)
 
 #define GARRISON		(1<<1)
 
@@ -160,13 +161,12 @@
 #define PILGRIM		(1<<13)
 #define VILLAGER	(1<<14)
 #define PRISONERR	(1<<15)
-#define HOSTAGE		(1<<16)
-#define PRISONERB	(1<<17)
-#define LUNATIC		(1<<18)
-#define MIGRANT		(1<<19)
-#define BANDIT		(1<<20)
-#define COURTAGENT	(1<<21)
-#define WRETCH		(1<<22)
+#define PRISONERB	(1<<16)
+#define LUNATIC		(1<<17)
+#define MIGRANT		(1<<18)
+#define BANDIT		(1<<19)
+#define COURTAGENT	(1<<20)
+#define WRETCH		(1<<21)
 
 #define YOUNGFOLK	(1<<6)
 
@@ -365,8 +365,8 @@
 	/datum/job/roguetown/shophand,\
 	/datum/job/roguetown/bapprentice,\
 	/datum/job/roguetown/prisonerb,\
-	/datum/job/roguetown/prisonerr,\
-	/datum/job/roguetown/hostage
+	/datum/job/roguetown/hostage,\
+	/datum/job/roguetown/prisonerr
 
 #define YEOMEN_ROLES \
 	/datum/job/roguetown/elder,\
