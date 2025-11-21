@@ -158,7 +158,7 @@
 	clickcd = CLICK_CD_CHARGED
 	penfactor = BLUNT_DEFAULT_PENFACTOR
 	swingdelay = 5
-	damfactor = 0.78
+	damfactor = 0.05
 	item_d_type = "slash"
 	peel_divisor = 5
 	reach = 2

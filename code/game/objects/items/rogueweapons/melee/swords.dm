@@ -61,7 +61,7 @@
 	chargetime = 0
 	penfactor = BLUNT_DEFAULT_PENFACTOR
 	swingdelay = 0
-	damfactor = 0.78
+	damfactor = 0.05
 	item_d_type = "slash"
 	peel_divisor = 5
 
