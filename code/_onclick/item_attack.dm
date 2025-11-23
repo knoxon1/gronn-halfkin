@@ -238,7 +238,7 @@
 	testing("startforce [newforce]")
 	if(!istype(user))
 		return newforce
-	var/dullness_ratio
+	var/dullness_ratio = 1
 	if(I.max_blade_int && I.sharpness != IS_BLUNT)
 		dullness_ratio = I.blade_int / I.max_blade_int
 	var/cont = FALSE
