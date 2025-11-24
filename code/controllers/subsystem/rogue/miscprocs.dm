@@ -45,6 +45,8 @@
 	var/prayer_effectiveness = 2
 	/// Spells we have granted thus far
 	var/list/granted_spells
+		///suppress granting miracles updating from devotion level up
+	var/suppress_grants = FALSE
 
 /datum/devotion/New(mob/living/carbon/human/holder, datum/patron/patron)
 	. = ..()
@@ -106,6 +108,8 @@
 	return TRUE
 
 /datum/devotion/proc/try_add_spells(silent = FALSE)
+    if(suppress_grants)
+        return FALSE
 	if(length(patron.miracles))
 		for(var/spell_type in patron.miracles)
 			if(patron.miracles[spell_type] <= level)
