@@ -355,7 +355,9 @@ var/global/list/anvil_recipe_prices[][]
 
 /world/New()
 	..()
-	initialize_anvil_recipe_prices() // Precompute recipe prices on startup */
+	initialize_anvil_recipe_prices() // Precompute recipe prices on startup
+
+*/
 
 /obj/effect/proc_holder/spell/invoked/hammerfall/cast(list/targets, mob/user = usr)
 	var/turf/fallzone = null
