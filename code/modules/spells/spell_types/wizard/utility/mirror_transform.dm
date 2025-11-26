@@ -710,8 +710,8 @@
 				if(new_color)
 					horns.Remove(H)
 					var/list/colors = list()
-					if(ears.accessory_colors)
-						colors = color_string_to_list(ears.accessory_colors)
+					if(horns.accessory_colors)
+						colors = color_string_to_list(horns.accessory_colors)
 					if(!length(colors))
 						colors = list("#FFFFFF", "#FFFFFF") // Default colors if none set
 					colors[1] = sanitize_hexcolor(new_color, 6, TRUE)
