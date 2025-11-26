@@ -727,7 +727,7 @@
 			var/list/valid_wings = list("none")
 			for(var/wings_path in subtypesof(/datum/sprite_accessory/wings))
 				var/datum/sprite_accessory/wings/wings = new wings_path()
-				valid_ears[wings.name] = wings_path
+				valid_wings[wings.name] = wings_path
 
 			var/new_style = input(H, "Choose your wings", "Wings Customization") as null|anything in valid_wings
 			if(new_style)
@@ -757,7 +757,7 @@
 					wings.Remove(H)
 					var/list/colors = list()
 					if(wings.accessory_colors)
-						colors = color_string_to_list(ears.accessory_colors)
+						colors = color_string_to_list(wings.accessory_colors)
 					if(!length(colors))
 						colors = list("#FFFFFF", "#FFFFFF") // Default colors if none set
 					colors[1] = sanitize_hexcolor(new_color, 6, TRUE)
