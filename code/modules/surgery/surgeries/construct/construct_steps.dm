@@ -27,7 +27,7 @@
     surgery_flags = SURGERY_CONSTRUCT
     surgery_flags_blocked = SURGERY_CLAMPED
     skill_used = /datum/skill/craft/engineering
-	surgery_flags_blocked = null
+    surgery_flags_blocked = null
 
 /datum/surgery_step/clamp/construct/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	display_results(user, target, span_notice("I begin to secure cogs in [target]'s [parse_zone(target_zone)]..."),
