@@ -48087,7 +48087,7 @@
 "mOU" = (
 /obj/structure/lever{
 	pixel_y = 10;
-	redstone_id = "keepgate_inner";
+	redstone_id = "gallows2";
 	name = "right gallows lever"
 	},
 /turf/open/floor/rogue/ruinedwood/platform,
@@ -72301,7 +72301,7 @@
 	pixel_y = -2
 	},
 /obj/structure/floordoor{
-	redstone_id = "hidden_grove"
+	redstone_id = "gallows1"
 	},
 /obj/structure/chair/stool/rogue,
 /turf/open/transparent/openspace,
