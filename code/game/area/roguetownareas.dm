@@ -324,14 +324,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
 	first_time_text = "THE SCARLET GROVE"
 	converted_type = /area/rogue/indoors/shelter/woods
-	threat_region = THREAT_REGION_OUTER_GROVE
+	threat_region = THREAT_REGION_SCARLET_GROVE
 
 /area/rogue/indoors/shelter/woods
 	icon_state = "woods"
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
-	threat_region = THREAT_REGION_OUTER_GROVE
+	threat_region = THREAT_REGION_SCARLET_GROVE
 
 //Azure Peak port, some more threat regions so we can adjust the ambush pool
 /area/rogue/outdoors/woods/north
@@ -343,7 +343,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 		/mob/living/carbon/human/species/skeleton/npc/easy = 20,
 		/mob/living/carbon/human/species/goblin/npc/ambush = 30,
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
-	threat_region = THREAT_REGION_NORTHERN_GROVE
+	threat_region = THREAT_REGION_SCARLET_GROVE
 
 /area/rogue/outdoors/woods/northeast
 	name = "Scarlet Grove - Northeast"
@@ -355,7 +355,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 			/mob/living/carbon/human/species/goblin/npc/ambush = 20,
 			/mob/living/carbon/human/species/goblin/npc/sea = 10,
 			/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
-	threat_region = THREAT_REGION_NORTHERN_GROVE
+	threat_region = THREAT_REGION_SCARLET_GROVE
 
 /area/rogue/outdoors/woods/southeast
 	name = "Azure Grove - Southeast"
@@ -516,21 +516,21 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 40)
 	first_time_text = "THE SCARLET COAST"
 	converted_type = /area/rogue/indoors/shelter/woods
-	threat_region = THREAT_REGION_NORTH_SCARLET_COAST
+	threat_region = THREAT_REGION_SCARLET_COAST
 
 /area/rogue/outdoors/beach/forest/hamlet
 	name = "The Scarlet Coast - Hamlet"
 	first_time_text = "THE HAMLET"
 	ambush_mobs = null // We don't want actual ambushes in Hamlet but we also don't want to misuse outdoors/beach lol
-	threat_region = THREAT_REGION_NORTH_SCARLET_COAST
+	threat_region = THREAT_REGION_SCARLET_COAST
 
 /area/rogue/outdoors/beach/forest/north
 	name = "The Scarlet Coast - North"
-	threat_region = THREAT_REGION_NORTH_SCARLET_COAST
+	threat_region = THREAT_REGION_SCARLET_COAST
 
 /area/rogue/outdoors/beach/forest/south
 	name = "The Scarlet Coast - South"
-	threat_region = THREAT_REGION_SOUTH_SCARLET_COAST
+	threat_region = THREAT_REGION_SCARLET_COAST
 
 //// UNDER AREAS (no indoor rain sound usually)
 
@@ -829,7 +829,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/dungeon1
 	ceiling_protected = TRUE
-	threat_region = THREAT_REGION_NORTH_SCARLET_COAST
+	threat_region = THREAT_REGION_SCARLET_COAST
 
 /area/rogue/under/cave/inhumen
 	name = "inhumen"

@@ -6,10 +6,8 @@
 #define DANGER_LEVEL_BLEAK "Bleak"
 
 #define THREAT_REGION_BLACK_BASIN "Black Basin"
-#define THREAT_REGION_NORTHERN_GROVE "Northern Grove"
-#define THREAT_REGION_OUTER_GROVE "Outer Grove" // Grove west of the road
-#define THREAT_REGION_SOUTH_SCARLET_COAST "South Scarlet Coast"
-#define THREAT_REGION_NORTH_SCARLET_COAST "North Scarlet Coast"
+#define THREAT_REGION_SCARLET_GROVE "Scarlet Grove"
+#define THREAT_REGION_SCARLET_COAST "Scarlet Coast"
 #define THREAT_REGION_MOUNT_DECAP "Mount Decapitation"
 #define THREAT_REGION_TERRORBOG "Terrorbog"
 
@@ -33,19 +31,10 @@ SUBSYSTEM_DEF(regionthreat)
 			_highpop_tick = 1,
 		),
 		new /datum/threat_region(
-			_region_name = THREAT_REGION_NORTHERN_GROVE,
+			_region_name = THREAT_REGION_SCARLET_GROVE,
 			_latent_ambush = DANGER_MODERATE_FLOOR,
 			_min_ambush = DANGER_SAFE_FLOOR,
 			_max_ambush = DANGER_DANGEROUS_LIMIT,
-			_fixed_ambush = FALSE,
-			_lowpop_tick = 1,
-			_highpop_tick = 1
-		),
-		new /datum/threat_region(
-			_region_name = THREAT_REGION_SOUTH_SCARLET_COAST,
-			_latent_ambush = DANGER_DANGEROUS_FLOOR,
-			_min_ambush = DANGER_SAFE_FLOOR,
-			_max_ambush = DANGER_BLEAK_LIMIT,
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
 			_highpop_tick = 1
@@ -57,26 +46,17 @@ SUBSYSTEM_DEF(regionthreat)
 			_max_ambush = DANGER_BLEAK_LIMIT,
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
-			_highpop_tick = 2
+			_highpop_tick = 1
 		),
 		// All regions after are meant to stay somewhat dangerous no matter what
 		new /datum/threat_region(
-			_region_name = THREAT_REGION_OUTER_GROVE,
-			_latent_ambush = DANGER_MODERATE_LIMIT,
-			_min_ambush = DANGER_MODERATE_FLOOR,
-			_max_ambush = DANGER_BLEAK_LIMIT,
-			_fixed_ambush = FALSE,
-			_lowpop_tick = 1,
-			_highpop_tick = 2
-		),
-		new /datum/threat_region(
-			_region_name = THREAT_REGION_NORTH_SCARLET_COAST,
+			_region_name = THREAT_REGION_SCARLET_COAST,
 			_latent_ambush = DANGER_DANGEROUS_FLOOR,
 			_min_ambush = DANGER_MODERATE_FLOOR,
 			_max_ambush = DANGER_BLEAK_LIMIT,
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
-			_highpop_tick = 2
+			_highpop_tick = 1
 		),
 		new /datum/threat_region(
 			_region_name = THREAT_REGION_MOUNT_DECAP,
@@ -85,7 +65,7 @@ SUBSYSTEM_DEF(regionthreat)
 			_max_ambush = DANGER_BLEAK_LIMIT,
 			_fixed_ambush = FALSE,
 			_lowpop_tick = 1,
-			_highpop_tick = 2
+			_highpop_tick = 1
 		)
 	)
 
