@@ -29,15 +29,29 @@
 					/obj/effect/proc_holder/spell/invoked/blood_heal					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/projectile/profane/miracle 	= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/raise_lesser_undead/miracle 	= CLERIC_T2,
-					/obj/effect/proc_holder/spell/invoked/wound_heal					= CLERIC_T3,
-					/obj/effect/proc_holder/spell/invoked/rituos/miracle 				= CLERIC_T3
+					/obj/effect/proc_holder/spell/invoked/rituos/miracle 				= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal					= CLERIC_T4,
 	)
 	confess_lines = list(
 		"PRAISE ZIZO!",
 		"LONG LIVE ZIZO!",
 		"ZIZO IS QUEEN!",
 	)
+	miracle_healing_lines = list(
+		"Vital energies congeal about %TARGET!"
+	)
 	storyteller = /datum/storyteller/zizo
+
+/datum/patron/inhumen/zizo/situational_bonus(mob/living/follower, mob/living/target)
+	// set up a ritual pile of bones (or just cast near a stack of bones whatever) around us for massive bonuses
+	var/situational_bonus = 0
+	for (var/obj/item/natural/bone/O in oview(5, follower))
+		situational_bonus += (0.5)
+	for (var/obj/item/natural/bundle/bone/S in oview(5, follower))
+		situational_bonus += (S.amount * 0.5)
+	if (situational_bonus > 0)
+		situational_bonus = min(situational_bonus, 5)
+	return list((situational_bonus > 0), situational_bonus)
 
 /datum/patron/inhumen/graggar
 	name = "Graggar"
@@ -52,14 +66,22 @@
 					/obj/effect/proc_holder/spell/self/call_to_slaughter 				= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/projectile/blood_net 			= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/revel_in_slaughter 			= CLERIC_T3,
-					/obj/effect/proc_holder/spell/invoked/wound_heal					= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal					= CLERIC_T4,
 	)
 	confess_lines = list(
 		"GRAGGAR IS THE BEAST I WORSHIP!",
 		"THROUGH VIOLENCE, DIVINITY!",
 		"THE GOD OF CONQUEST DEMANDS BLOOD!",
 	)
+	miracle_healing_lines = list(
+		"A riotous roar of energy envelops %TARGET!"
+	)
 	storyteller = /datum/storyteller/graggar
+
+/datum/patron/inhumen/graggar/situational_bonus(mob/living/follower, mob/living/target)
+	// if you've got lingering toxin damage, you get healed more, but your bonus healing doesn't affect toxin
+	// also this kind of sucks and isn't very graggary at all
+	return list((follower.getToxLoss() > 0), 2.5)
 
 /datum/patron/inhumen/matthios
 	name = "Matthios"
@@ -75,14 +97,21 @@
 					/obj/effect/proc_holder/spell/invoked/blood_heal					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/equalize						= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/churnwealthy					= CLERIC_T3,
-					/obj/effect/proc_holder/spell/invoked/wound_heal					= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal					= CLERIC_T4,
 	)
 	confess_lines = list(
 		"MATTHIOS STEALS FROM THE WORTHLESS!",
 		"MATTHIOS IS JUSTICE!",
 		"MATTHIOS IS MY LORD!",
 	)
+	miracle_healing_lines = list(
+		"Aureate embers coruscate around %TARGET!"
+	)
 	storyteller = /datum/storyteller/matthios
+
+/datum/patron/inhumen/matthios/situational_bonus(mob/living/follower, mob/living/target)
+	// other matthiosians benefit from our miracles more
+	return list(HAS_TRAIT(target, TRAIT_COMMIE), 2.5)
 
 /datum/patron/inhumen/baotha
 	name = "Baotha"
@@ -97,14 +126,26 @@
 					/obj/effect/proc_holder/spell/invoked/baothablessings				= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/projectile/blowingdust		= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/painkiller					= CLERIC_T3,
-					/obj/effect/proc_holder/spell/invoked/wound_heal					= CLERIC_T3,
+					/obj/effect/proc_holder/spell/invoked/wound_heal					= CLERIC_T4,
 	)
 	confess_lines = list(
 		"BAOTHA DEMANDS PLEASURE!",
 		"LIVE, LAUGH, LOVE!",
 		"BAOTHA IS MY JOY!",
 	)
+	miracle_healing_lines = list(
+		"Lurid whispers entwine about %TARGET!"
+	)
 	storyteller = /datum/storyteller/baotha
+
+/datum/patron/inhumen/baotha/situational_bonus(mob/living/follower, mob/living/target)
+	// if we're high on drugs or drunk, our miracles are stronger
+	var/situational_bonus = 0
+	if (follower.has_status_effect(/datum/status_effect/buff/ozium) || follower.has_status_effect(/datum/status_effect/buff/moondust) || follower.has_status_effect(/datum/status_effect/buff/moondust_purest) || follower.has_status_effect(/datum/status_effect/buff/druqks) || follower.has_status_effect(/datum/status_effect/buff/starsugar))
+		situational_bonus += 2.5
+	if (follower.has_status_effect(/datum/status_effect/buff/drunk))
+		situational_bonus += 1.5
+	return list((situational_bonus > 0), situational_bonus)
 
 /////////////////////////////////
 // Does God Hear Your Prayer ? //
