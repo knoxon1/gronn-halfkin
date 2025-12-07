@@ -1963,6 +1963,7 @@
 	detail_tag = "_detail"
 	altdetail_tag = "_detailalt"
 	dynamic_hair_suffix = ""
+	resistance_flags = FIRE_PROOF //It's treated with magickal seed oils or some shit. Trust.
 	max_integrity = 150
 	body_parts_covered = HEAD|HAIR|EARS
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
