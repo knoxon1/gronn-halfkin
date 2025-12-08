@@ -201,7 +201,7 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/armor_brush = 1, /obj/item/polishing_cream = 1, /obj/item/flashlight/flare/torch/lantern = 1, /obj/item/rogueweapon/hammer/iron = 1, /obj/item/recipe_book/survival = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/rogueweapon/scabbard/sheath = 1)
+	backpack_contents = list(/obj/item/armor_brush = 1, /obj/item/polishing_cream = 1, /obj/item/flashlight/flare/torch/lantern = 1, /obj/item/rogueweapon/hammer/iron = 1, /obj/item/recipe_book/survival = 1, /obj/item/rogueweapon/huntingknife = 1)
 	if(H.mind)
 		var/armors = list("Light Armor","Medium Armor")
 		var/armor_choice = input(H, "Choose your armor.", "HOW WILL YOU LOOK WHEN YOU DIE") as anything in armors
