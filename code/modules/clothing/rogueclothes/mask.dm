@@ -493,9 +493,9 @@
 	sellprice = 100
 	smeltresult = /obj/item/ingot/gold
 
-/obj/item/clothing/mask/rogue/facemask/yoruku_oni
+/obj/item/clothing/mask/rogue/facemask/hound/yoruku_oni
 	name = "oni mask"
-	desc = "A steel mask in the visage of demons said to stalk the mountains of Kazengun."
+	desc = "An iron mask in the visage of demons said to stalk the mountains of Kazengun."
 	icon_state = "oni"
 
 /obj/item/clothing/mask/rogue/facemask/hound/yoruku_kitsune
