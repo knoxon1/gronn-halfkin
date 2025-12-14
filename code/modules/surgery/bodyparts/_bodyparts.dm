@@ -479,6 +479,9 @@
 	last_disable = world.time
 	if(owner)
 		owner.update_health_hud() //update the healthdoll
+		if(ishuman(owner))
+			var/mob/living/carbon/human/H = owner
+			H.icon_render_key = null
 		owner.queue_icon_update(PENDING_UPDATE_BODY)
 		owner.update_mobility()
 	return TRUE //if there was a change.
@@ -513,6 +516,11 @@
 
 	if(owner)
 		owner.updatehealth()
+		if(ishuman(owner))
+			var/mob/living/carbon/human/H = owner
+			H.body_overlay_cache_key = null
+			H.damage_overlay_cache_key = null
+			H.icon_render_key = null
 		owner.queue_icon_update(PENDING_UPDATE_BODY | PENDING_UPDATE_HAIR | PENDING_UPDATE_DAMAGE)
 
 /obj/item/bodypart/proc/is_organic_limb()
