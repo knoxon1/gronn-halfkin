@@ -100,6 +100,9 @@
 		var/mob/living/L = user
 		if(!can_trigger_gun(L))
 			return
+		if(L.used_intent && L.used_intent.get_chargetime())
+			if(!L.client || !L.client.charging)
+				return
 
 //	if(flag)
 //		if(user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
@@ -110,7 +113,7 @@
 		shoot_with_empty_chamber(user)
 		return
 
-	if(user?.used_intent.arc_check() && target.z != user.z) //temporary fix for openspace arrow dupe
+	if(user.used_intent.arc_check() && target.z != user.z) //temporary fix for openspace arrow dupe
 		target = get_turf(locate(target.x, target.y, user.z))
 
 	return process_fire(target, user, TRUE, params, null, 0)
