@@ -9,7 +9,7 @@
 	penfactor = 0
 	chargetime = 0
 	swingdelay = 0
-	damfactor = 1.1
+	damfactor = 1.2
 	clickcd = CLICK_CD_FAST
 	item_d_type = "slash"
 
