@@ -769,7 +769,6 @@
 	force = 30
 	possible_item_intents = list(/datum/intent/claw/cut/iron, /datum/intent/claw/lunge/iron, /datum/intent/claw/rend)
 	wbalance = WBALANCE_NORMAL
-	minstr = 12
 	max_blade_int = 300
 	max_integrity = 200
 	gripsprite = FALSE
@@ -797,7 +796,6 @@
 	force = 35
 	possible_item_intents = list(/datum/intent/claw/cut/steel, /datum/intent/claw/lunge/steel, /datum/intent/claw/rend/steel)
 	wbalance = WBALANCE_HEAVY
-	minstr = 14
 	max_blade_int = 180
 	max_integrity = 200
 	smeltresult = /obj/item/ingot/steel
@@ -814,7 +812,6 @@
 	force = 25
 	possible_item_intents = list(/datum/intent/claw/cut/gronn, /datum/intent/claw/lunge/gronn, /datum/intent/claw/rend)
 	wbalance = WBALANCE_SWIFT
-	minstr = 10
 	max_blade_int = 200
 	max_integrity = 200
 
