@@ -637,6 +637,17 @@
 		var/datum/physiology/phy = target.physiology
 		phy.bleed_mod /= 1.5
 		phy.pain_mod /= 1.5
+/datum/status_effect/debuff/sunspurn
+	id = "Sunspurn"
+	alert_type =  /atom/movable/screen/alert/status_effect/debuff/sunspurn
+	effectedstats = list("strength" = -2, "endurance" = -3, "constitution" = -3)
+	duration = 1 MINUTES
+
+/atom/movable/screen/alert/status_effect/debuff/sunspurn
+	name = "Sunspurned"
+	desc = "Astrata spurns me! I feel so weak..."
+	icon_state = "muscles"
+
 
 /datum/status_effect/debuff/sensitivity
 	id = "Sunlight Sensitivity"
