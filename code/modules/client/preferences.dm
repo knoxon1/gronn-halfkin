@@ -2909,6 +2909,12 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 	character.ooc_notes_display = ooc_notes_display
 
+	// Rumours / Noble gossip
+	character.rumour = rumour
+	character.rumour_display = rumour_display
+	character.rumour_noble = gossip
+	character.rumour_noble_display = gossip_display
+
 	character.is_legacy = is_legacy
 
 	character.ooc_extra_link = ooc_extra_link

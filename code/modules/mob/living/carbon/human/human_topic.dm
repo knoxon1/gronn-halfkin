@@ -70,7 +70,7 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		if(href_list["task"] == "view_noble_rumours")
 			if(!ismob(usr))
 				return
-			to_chat(usr, "<span class='info'><b>Noble Gossip about [src]:</b><br>[gossip]</span>")
+			to_chat(usr, "<span class='info'><b>Noble Gossip about [src]:</b><br>[rumour_noble]</span>")
 			return
 
 	if(href_list["inspect_limb"] && (observer_privilege || usr.canUseTopic(src, BE_CLOSE, NO_DEXTERITY)))

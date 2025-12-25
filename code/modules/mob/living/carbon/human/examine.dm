@@ -914,9 +914,9 @@
 		. += "<a href='?src=[REF(src)];task=view_headshot;'>Examine closer</a> [showassess ? " | <a href='?src=[REF(src)];task=assess;'>Assess</a>" : ""]"
 		//tiny picture when you are not examining closer, shouldnt take too much space.
 	//Rumours & Gossip — only show links if there is actual text stored
-	if((!obscure_name) && rumour && (length(rumour) > 0))
+	if((!obscure_name) && rumour && (length(rumour)))
 		. += "<a href='?src=[REF(src)];task=view_rumours;'>Recall Rumours</a>"
-	if((!obscure_name) && rumour_noble && HAS_TRAIT(user, TRAIT_NOBLE) && (length(rumour_noble) > 0))
+	if((!obscure_name) && rumour_noble && HAS_TRAIT(user, TRAIT_NOBLE) && (length(rumour_noble)))
 		. += "<a href='?src=[REF(src)];task=view_noble_rumours;'>Recall Gossip</a>"
 
 	var/list/lines
