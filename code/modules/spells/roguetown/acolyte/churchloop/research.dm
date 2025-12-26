@@ -52,7 +52,7 @@
 #endif
 
 #ifndef UNLOCK_SHUNNED_RP
-#define UNLOCK_SHUNNED_RP 10
+#define UNLOCK_SHUNNED_RP 5
 #endif
 
 // MOB dont blame me im a retard
